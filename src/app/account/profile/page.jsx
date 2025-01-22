@@ -1,6 +1,10 @@
 import SelectCountry from "@/components/SelectCountry";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Profile",
+};
+
 function page() {
   const countryFlag = "pt.jpg";
   const nationality = "portugal";
@@ -36,11 +40,11 @@ function page() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label htmlFor="nationality">Where are you from?</label>
-            <Image
+            {/* <Image
               src={countryFlag}
               alt="Country flag"
               className="h-5 rounded-sm"
-            />
+            /> */}
           </div>
 
           <SelectCountry
