@@ -1,11 +1,16 @@
 import Image from "next/image";
 import aboutPic1 from "@/../public/about-1.jpg";
+import { getCabins } from "@/lib/data-service";
 
 export const metadata = {
   title: "About",
 };
 
-function Page() {
+export const revalidate = 86400;
+
+async function Page() {
+  const cabinsCount = (await getCabins()).length;
+
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
       <div className="col-span-3">
@@ -22,10 +27,10 @@ function Page() {
             and enjoying simple pleasures with family.
           </p>
           <p>
-            Our 8 luxury cabins provide a cozy base, but the real freedom and
-            peace you&apos;ll find in the surrounding mountains. Wander through
-            lush forests, breathe in the fresh air, and watch the stars twinkle
-            above from the warmth of a campfire or your hot tub.
+            Our {cabinsCount} luxury cabins provide a cozy base, but the real
+            freedom and peace you&apos;ll find in the surrounding mountains.
+            Wander through lush forests, breathe in the fresh air, and watch the
+            stars twinkle above from the warmth of a campfire or your hot tub.
           </p>
           <p>
             This is where memorable moments are made, surrounded by
@@ -69,8 +74,8 @@ function Page() {
             blending the timeless beauty of the mountains with the personal
             touch only a family business can offer. Here, you&apos;re not just a
             guest; you&apos;re part of our extended family. So join us at The
-            Wild Oasis soon, where tradition meets tranquility, and every visit
-            is like coming home.
+            Hutlet soon, where tradition meets tranquility, and every visit is
+            like coming home.
           </p>
 
           <div>
@@ -78,7 +83,7 @@ function Page() {
               href="/cabins"
               className="inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
             >
-              Explore our luxury cabins
+              Explore our luxury huts
             </a>
           </div>
         </div>
