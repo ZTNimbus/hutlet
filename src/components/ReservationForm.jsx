@@ -27,6 +27,8 @@ function ReservationForm({ cabin, session }) {
 
   const createBookingWithData = createBooking.bind(null, bookingData);
 
+  console.log(startDate, endDate);
+
   return (
     <div className="scale-[1.01]">
       <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
@@ -85,7 +87,7 @@ function ReservationForm({ cabin, session }) {
         </div>
 
         <div className="flex justify-end items-center gap-6">
-          {!startDate || !endDate ? (
+          {!(startDate && endDate) ? (
             <p className="text-primary-300 text-base">
               Start by selecting dates
             </p>
